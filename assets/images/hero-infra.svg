@@ -1,0 +1,72 @@
+<svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de servidor Windows e nuvem Azure">
+  <defs>
+    <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="55%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="gradGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#24314A"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cloud shape -->
+  <g opacity="0.9">
+    <path d="M120 130 q-30 0 -30 30 q-24 4 -24 28 q0 28 28 28 h230 q30 0 30 -30 q0 -26 -24 -30 q-2 -40 -42 -40 q-14 0 -24 6 q-14 -26 -46 -26 q-40 0 -48 34 q-10 -6 -20 0 z"
+      fill="url(#gradBrand)" opacity="0.18"/>
+  </g>
+
+  <!-- Server rack -->
+  <g>
+    <rect x="150" y="150" width="220" height="280" rx="14" fill="url(#gradGlass)" stroke="#0EA5E9" stroke-opacity="0.35"/>
+    <!-- Rack units -->
+    <g>
+      <rect x="172" y="176" width="176" height="46" rx="8" fill="#111827" stroke="#0078D4" stroke-opacity="0.5"/>
+      <circle cx="192" cy="199" r="5" fill="#34D399"/>
+      <rect x="210" y="192" width="110" height="6" rx="3" fill="#374151"/>
+      <rect x="210" y="204" width="80" height="6" rx="3" fill="#374151"/>
+    </g>
+    <g>
+      <rect x="172" y="232" width="176" height="46" rx="8" fill="#111827" stroke="#0078D4" stroke-opacity="0.5"/>
+      <circle cx="192" cy="255" r="5" fill="#0EA5E9"/>
+      <rect x="210" y="248" width="110" height="6" rx="3" fill="#374151"/>
+      <rect x="210" y="260" width="80" height="6" rx="3" fill="#374151"/>
+    </g>
+    <g>
+      <rect x="172" y="288" width="176" height="46" rx="8" fill="#111827" stroke="#0078D4" stroke-opacity="0.5"/>
+      <circle cx="192" cy="311" r="5" fill="#FBBF24"/>
+      <rect x="210" y="304" width="110" height="6" rx="3" fill="#374151"/>
+      <rect x="210" y="316" width="80" height="6" rx="3" fill="#374151"/>
+    </g>
+    <g>
+      <rect x="172" y="344" width="176" height="46" rx="8" fill="#111827" stroke="#0078D4" stroke-opacity="0.5"/>
+      <circle cx="192" cy="367" r="5" fill="#34D399"/>
+      <rect x="210" y="360" width="110" height="6" rx="3" fill="#374151"/>
+      <rect x="210" y="372" width="80" height="6" rx="3" fill="#374151"/>
+    </g>
+  </g>
+
+  <!-- Connection lines to cloud -->
+  <path d="M260 150 L260 90" stroke="url(#gradBrand)" stroke-width="3" stroke-dasharray="6 6"/>
+  <circle cx="260" cy="80" r="14" fill="url(#gradBrand)"/>
+
+  <!-- Windows-style logo squares floating -->
+  <g transform="translate(360,60)">
+    <rect x="0" y="0" width="18" height="18" fill="#0078D4"/>
+    <rect x="22" y="0" width="18" height="18" fill="#2563EB"/>
+    <rect x="0" y="22" width="18" height="18" fill="#0EA5E9"/>
+    <rect x="22" y="22" width="18" height="18" fill="#0078D4"/>
+  </g>
+
+  <!-- Network nodes -->
+  <circle cx="90" cy="380" r="8" fill="#0EA5E9"/>
+  <circle cx="70" cy="330" r="6" fill="#2563EB"/>
+  <path d="M90 380 L150 360" stroke="#0EA5E9" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M70 330 L150 300" stroke="#2563EB" stroke-width="2" stroke-opacity="0.5"/>
+
+  <circle cx="440" cy="380" r="8" fill="#0078D4"/>
+  <circle cx="460" cy="330" r="6" fill="#0EA5E9"/>
+  <path d="M440 380 L370 360" stroke="#0078D4" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M460 330 L370 300" stroke="#0EA5E9" stroke-width="2" stroke-opacity="0.5"/>
+</svg>

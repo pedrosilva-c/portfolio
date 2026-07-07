@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================= SEO ============================= -->
+  <title>Pedro Henrique | Windows Server • Active Directory • Infraestrutura Microsoft</title>
+  <meta name="description" content="Portfólio técnico de Pedro Henrique: infraestrutura Microsoft aplicada na prática — Windows Server, Active Directory, GPO, DNS/DHCP, PowerShell e Azure, com laboratórios, casos técnicos e scripts documentados.">
+  <meta name="keywords" content="infraestrutura microsoft, windows server, active directory, powershell, azure, gpo, dns, dhcp, analista de infraestrutura, analista de redes, suporte técnico n1 n2, cloud engineer">
+  <meta name="author" content="Pedro Henrique">
+  <link rel="canonical" href="https://seu-usuario.github.io/portfolio/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pedro Henrique | Windows Server • Active Directory • Infraestrutura Microsoft">
+  <meta property="og:description" content="Infraestrutura Microsoft aplicada na prática: Windows Server, Active Directory, GPO, PowerShell e Azure — com laboratórios, casos técnicos e scripts documentados.">
+  <meta property="og:url" content="https://seu-usuario.github.io/portfolio/">
+  <meta property="og:image" content="assets/images/og-cover.svg">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pedro Henrique | Windows Server • Active Directory • Infraestrutura Microsoft">
+  <meta name="twitter:description" content="Infraestrutura Microsoft aplicada na prática: Windows Server, Active Directory, GPO, PowerShell e Azure — com laboratórios, casos técnicos e scripts documentados.">
+  <meta name="twitter:image" content="assets/images/og-cover.svg">
+
+  <!-- Favicon / cor de tema (barra do navegador em mobile) -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="mask-icon" href="assets/images/favicon.svg" color="#0078D4">
+  <meta name="theme-color" content="#111827">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pedro Henrique",
+    "jobTitle": "Analista de Infraestrutura de TI em formação",
+    "description": "Profissional em formação especializado em Windows Server, Active Directory, GPO, PowerShell e Microsoft Azure, com atuação prática em ambiente corporativo.",
+    "url": "https://seu-usuario.github.io/portfolio/",
+    "knowsAbout": ["Windows Server", "Active Directory", "Group Policy Objects", "DNS", "DHCP", "PowerShell", "Microsoft Azure", "Infraestrutura de Redes"],
+    "sameAs": [
+      "https://www.linkedin.com/in/seu-usuario",
+      "https://github.com/seu-usuario"
+    ]
+  }
+  </script>
+
+  <!-- ===================== BIBLIOTECAS EXTERNAS ===================== -->
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+  <!-- Estilo próprio -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Acessibilidade: link para pular direto ao conteúdo -->
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ============================= LOADER ============================= -->
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- ============================= NAVBAR ============================= -->
+  <header class="navbar-custom" role="banner">
+    <div class="nav-inner">
+      <a href="#home" class="brand-logo" aria-label="Página inicial">
+        <span class="logo-icon"><i class="fa-solid fa-server"></i></span>
+        Pedro Henrique
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#laboratorios">Laboratórios</a></li>
+          <li><a href="#casos-tecnicos">Casos Técnicos</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#certificacoes">Certificações</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#scripts">Scripts</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-toggle" data-theme-toggle aria-label="Alternar tema claro/escuro">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="nav-burger" aria-label="Abrir menu de navegação">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile (off-canvas) -->
+  <div class="mobile-menu-overlay"></div>
+  <aside class="mobile-menu" aria-label="Menu de navegação móvel">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="brand-logo"><span class="logo-icon"><i class="fa-solid fa-server"></i></span> Menu</span>
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#laboratorios">Laboratórios</a></li>
+      <li><a href="#casos-tecnicos">Casos Técnicos</a></li>
+      <li><a href="#tecnologias">Tecnologias</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#certificacoes">Certificações</a></li>
+      <li><a href="#blog">Blog Técnico</a></li>
+      <li><a href="#scripts">Scripts</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </aside>
+
+  <main id="main-content">
+
+    <!-- ============================= HERO / HOME ============================= -->
+    <section id="home" class="hero">
+      <canvas id="particles-canvas" aria-hidden="true"></canvas>
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+      <div class="container-custom">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7 hero-content">
+            <span class="hero-kicker"><span class="dot"></span> Disponível para oportunidades</span>
+            <h1 class="hero-title">
+              Pedro Henrique
+            </h1>
+            <div class="hero-typing-line" aria-live="polite">
+              <span class="hero-typing-prefix">Especialista em</span>
+              <span id="typing-text" class="text-gradient"></span><span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-desc">
+              Profissional em formação na área de Infraestrutura de TI, com atuação prática em ambiente
+              corporativo administrando <strong>Windows Server</strong> e <strong>Active Directory</strong>.
+              Construindo, com disciplina e consistência, o caminho técnico rumo à nuvem Microsoft e à
+              atuação como <strong>Cloud Engineer</strong>.
+            </p>
+            <div class="hero-actions">
+              <a href="#projetos" class="btn-brand">
+                <i class="fa-solid fa-diagram-project"></i> Ver Projetos
+              </a>
+              <a href="https://www.linkedin.com/in/seu-usuario" target="_blank" rel="noopener" class="btn-outline-brand">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" class="btn-outline-brand">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <a href="assets/curriculo-pedro-henrique.pdf" download class="btn-outline-brand">
+                <i class="fa-solid fa-download"></i> Currículo
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 hero-visual">
+            <!-- Ilustração SVG própria (infraestrutura Microsoft) -->
+            <img src="assets/images/hero-infra.svg" alt="Ilustração de infraestrutura de servidores Windows Server e nuvem Microsoft Azure" loading="eager">
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span>Role para baixo</span>
+        <span class="scroll-mouse"></span>
+      </div>
+    </section>
+
+    <!-- ============================= ESTATÍSTICAS ============================= -->
+    <section class="section" aria-label="Estatísticas">
+      <div class="container-custom">
+        <div class="stats-grid" id="stats-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE ============================= -->
+    <section id="sobre" class="section section-alt">
+      <div class="container-custom">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-5" data-aos="fade-right">
+            <div class="about-photo-frame">
+              <div class="inner">
+                <img src="assets/images/pedro-henrique.jpg" alt="Foto de perfil de Pedro Henrique" loading="lazy" width="800" height="800">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <span class="eyebrow">Sobre mim</span>
+            <h2 class="section-title">Da linha de comando à nuvem</h2>
+            <p class="section-subtitle mb-4">
+              Sou estudante de Sistemas de Informação e atuo atualmente em ambiente corporativo como
+              Jovem Aprendiz de TI, onde aplico na prática o suporte técnico N1/N2 e a administração de
+              infraestrutura Windows.
+            </p>
+            <ul class="about-list mb-4">
+              <li><i class="fa-solid fa-check"></i> Suporte Técnico N1 e N2</li>
+              <li><i class="fa-solid fa-check"></i> Windows Server</li>
+              <li><i class="fa-solid fa-check"></i> Active Directory</li>
+              <li><i class="fa-solid fa-check"></i> GPO, DNS e DHCP</li>
+              <li><i class="fa-solid fa-check"></i> Usuários, grupos e permissões</li>
+              <li><i class="fa-solid fa-check"></i> Cabeamento e hardware</li>
+              <li><i class="fa-solid fa-check"></i> Apoio em regras de firewall</li>
+              <li><i class="fa-solid fa-check"></i> Infraestrutura Windows corporativa</li>
+            </ul>
+            <p class="mb-2 fw-semibold">Atualmente em estudo:</p>
+            <div>
+              <span class="about-tag"><i class="fa-brands fa-microsoft"></i> Azure</span>
+              <span class="about-tag"><i class="fa-solid fa-terminal"></i> PowerShell</span>
+              <span class="about-tag"><i class="fa-solid fa-cloud"></i> Cloud</span>
+              <span class="about-tag"><i class="fa-brands fa-linux"></i> Linux</span>
+              <span class="about-tag"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="about-tag"><i class="fa-solid fa-gears"></i> Automação</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= TECNOLOGIAS ============================= -->
+    <section id="tecnologias" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Stack técnica</span>
+          <h2 class="section-title">Tecnologias &amp; Nível de Domínio</h2>
+          <p class="section-subtitle">Nível real de experiência em cada tecnologia — sem percentuais genéricos, com contexto de onde apliquei e o que estudo a seguir.</p>
+        </div>
+        <div class="tech-grid" id="tech-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= EXPERIÊNCIA ============================= -->
+    <section id="experiencia" class="section section-alt">
+      <div class="container-custom">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="section-head text-center" data-aos="fade-up">
+              <span class="eyebrow">Trajetória profissional</span>
+              <h2 class="section-title">Experiência</h2>
+              <p class="section-subtitle mx-auto">Minha atuação prática em ambiente corporativo de infraestrutura de TI.</p>
+            </div>
+            <div class="timeline" id="experience-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PROJETOS ============================= -->
+    <section id="projetos" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Trabalhos práticos</span>
+          <h2 class="section-title">Projetos</h2>
+          <p class="section-subtitle">Projetos práticos que aplicam conceitos de infraestrutura Windows e nuvem Microsoft.</p>
+        </div>
+        <div class="project-grid" id="projects-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= LABORATÓRIOS ============================= -->
+    <section id="laboratorios" class="section section-alt">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Prática hands-on</span>
+          <h2 class="section-title">Laboratórios</h2>
+          <p class="section-subtitle">Minha principal seção — laboratórios documentados de infraestrutura, cada um com página própria detalhando o processo completo.</p>
+        </div>
+        <div class="lab-list" id="labs-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= CASOS TÉCNICOS ============================= -->
+    <section id="casos-tecnicos" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Resolução de problemas reais</span>
+          <h2 class="section-title">Casos Técnicos</h2>
+          <p class="section-subtitle">Problemas reais de suporte e infraestrutura, no formato Problema → Contexto → Solução → Resultado.</p>
+        </div>
+        <div class="casos-grid" id="casos-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= MINHA JORNADA ============================= -->
+    <section id="jornada" class="section section-alt">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Evolução</span>
+          <h2 class="section-title">Minha Jornada</h2>
+          <p class="section-subtitle">O caminho percorrido até aqui — e o que vem a seguir.</p>
+        </div>
+        <div class="journey-track" id="journey-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= ROADMAP ============================= -->
+    <section id="roadmap" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Planejamento de carreira</span>
+          <h2 class="section-title">Roadmap</h2>
+          <p class="section-subtitle">Metas técnicas planejadas ano a ano rumo à atuação como Cloud Engineer.</p>
+        </div>
+        <div class="roadmap-grid" id="roadmap-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= CERTIFICAÇÕES ============================= -->
+    <section id="certificacoes" class="section section-alt">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Validações técnicas</span>
+          <h2 class="section-title">Certificações</h2>
+          <p class="section-subtitle">Certificações concluídas, em andamento e planejadas.</p>
+        </div>
+        <div class="cert-grid" id="cert-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= BLOG TÉCNICO ============================= -->
+    <section id="blog" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Compartilhando conhecimento</span>
+          <h2 class="section-title">Blog Técnico</h2>
+          <p class="section-subtitle">Artigos práticos sobre infraestrutura, redes e nuvem Microsoft.</p>
+        </div>
+        <div class="blog-filters" id="blog-filters" role="tablist" aria-label="Filtrar posts por categoria"></div>
+        <div class="blog-grid" id="blog-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= SCRIPTS (GITHUB) ============================= -->
+    <section id="scripts" class="section section-alt">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Automação publicada</span>
+          <h2 class="section-title">Scripts</h2>
+          <p class="section-subtitle">Scripts de PowerShell e automação para Windows e Azure, publicados e documentados no GitHub.</p>
+        </div>
+        <div class="scripts-grid" id="scripts-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================= CONTATO ============================= -->
+    <section id="contato" class="section">
+      <div class="container-custom">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Vamos conversar</span>
+          <h2 class="section-title">Contato</h2>
+          <p class="section-subtitle">Aberto a oportunidades como Analista de Infraestrutura, Analista de Sistemas, Analista de Redes ou Administrador Windows Server.</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7" data-aos="fade-up">
+            <form class="glass-card contact-form p-4 p-md-5" id="contact-form">
+              <div class="mb-3">
+                <label for="contact-name">Nome</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Seu nome completo" required>
+              </div>
+              <div class="mb-3">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="seuemail@exemplo.com" required>
+              </div>
+              <div class="mb-4">
+                <label for="contact-message">Mensagem</label>
+                <textarea id="contact-message" class="form-control" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+              </div>
+              <button type="submit" class="btn-brand w-100 justify-content-center">
+                <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+              </button>
+              <div id="form-feedback" class="mt-3"></div>
+            </form>
+          </div>
+
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+            <a href="https://www.linkedin.com/in/seu-usuario" target="_blank" rel="noopener" class="glass-card contact-channel">
+              <span class="icon"><i class="fa-brands fa-linkedin"></i></span>
+              <span><span class="label d-block">LinkedIn</span><span class="value">/in/seu-usuario</span></span>
+            </a>
+            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" class="glass-card contact-channel">
+              <span class="icon"><i class="fa-brands fa-github"></i></span>
+              <span><span class="label d-block">GitHub</span><span class="value">/seu-usuario</span></span>
+            </a>
+            <a href="mailto:seuemail@exemplo.com" class="glass-card contact-channel">
+              <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+              <span><span class="label d-block">Email</span><span class="value">seuemail@exemplo.com</span></span>
+            </a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="glass-card contact-channel">
+              <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>
+              <span><span class="label d-block">WhatsApp</span><span class="value">Conversar agora</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="footer-custom">
+    <div class="container-custom">
+      <div class="footer-grid">
+        <div>
+          <span class="brand-logo mb-3 d-inline-flex"><span class="logo-icon"><i class="fa-solid fa-server"></i></span> Pedro Henrique</span>
+          <p class="mt-3" style="color: rgba(249,250,251,.65); font-size: .9rem; max-width: 320px;">
+            Analista de Infraestrutura em formação, especializado em Windows Server, Active Directory e Microsoft Azure.
+          </p>
+          <div class="footer-socials mt-3">
+            <a href="https://www.linkedin.com/in/seu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:seuemail@exemplo.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h6>Navegação</h6>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Conteúdo</h6>
+          <ul>
+            <li><a href="#laboratorios">Laboratórios</a></li>
+            <li><a href="#casos-tecnicos">Casos Técnicos</a></li>
+            <li><a href="#certificacoes">Certificações</a></li>
+            <li><a href="#blog">Blog Técnico</a></li>
+            <li><a href="#scripts">Scripts</a></li>
+          </ul>
+        </div>
+        <div>
+          <h6>Tecnologias</h6>
+          <ul>
+            <li><i class="fa-brands fa-windows me-2"></i>Windows Server</li>
+            <li><i class="fa-solid fa-sitemap me-2"></i>Active Directory</li>
+            <li><i class="fa-brands fa-microsoft me-2"></i>Azure</li>
+            <li><i class="fa-solid fa-terminal me-2"></i>PowerShell</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="current-year"></span> Pedro Henrique. Todos os direitos reservados.</span>
+        <span>Desenvolvido com HTML5, CSS3 &amp; JavaScript puro.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ============================= MODAL DE PROJETO ============================= -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background: var(--bg-card); color: var(--fg-body); border: 1px solid var(--border-color); border-radius: var(--radius-lg);">
+        <div class="modal-header" style="border-color: var(--border-color);">
+          <h5 class="modal-title" id="projectModalLabel">Projeto</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="projectModalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
