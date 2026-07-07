@@ -21,6 +21,7 @@
    17. Rodapé
    18. Componentes utilitários (loader, back-to-top, cursor)
    19. Responsivo
+   20. Foto da seção sobre 
    ========================================================================== */
 
 /* -------------------------------------------------------------------- */
@@ -1677,3 +1678,22 @@ textarea:focus-visible {
 }
 
 .mobile-menu-overlay.show { opacity: 1; visibility: visible; }
+
+/* FOTO DA SEÇÃO SOBRE */
+.about-photo-frame{
+    max-width:380px;
+    margin:auto;
+}
+
+.about-photo-frame .inner{
+    aspect-ratio:1/1;
+    overflow:hidden;
+}
+
+.about-photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+}
