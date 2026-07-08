@@ -132,9 +132,24 @@ const EXPERIENCE_DATA = [
       "Apoio na gestão de regras de <strong>firewall</strong> em conjunto com a equipe de segurança",
       "Documentação técnica de procedimentos e chamados, contribuindo para a base de conhecimento da equipe"
     ]
-  }
+  },
+  {
+  company: "Faculdade UniDomBosco — RJ",
+  role: "Estagiário de Suporte Técnico",
+  period: "Fevereiro 2026 — Abril 2026",
+  current: false,
+  summary: "Atuação em suporte técnico e infraestrutura de TI no ambiente acadêmico, prestando atendimento aos setores da instituição, realizando manutenção de equipamentos, organização da rede e apoio na implantação de laboratórios de informática.",
+  activities: [
+    "Suporte técnico <strong>N1</strong> a colaboradores, realizando atendimento presencial e remoto para resolução de incidentes",
+    "Manutenção preventiva e corretiva de <strong>hardware</strong> e <strong>software</strong> em computadores e equipamentos institucionais",
+    "Instalação, organização e crimpagem de <strong>cabos de rede</strong>, garantindo conectividade entre setores",
+    "Atendimento aos diferentes setores da instituição, prestando suporte operacional e solucionando demandas de TI",
+    "Elaboração e atualização de <strong>planilhas</strong> para controle de ativos, inventário e atividades administrativas",
+    "Configuração e preparação de estações de trabalho para novos usuários e ambientes acadêmicos",
+    "Participação na implantação de um <strong>laboratório de informática completo</strong>, auxiliando na instalação, organização e configuração da infraestrutura e dos equipamentos"
+  ]
+}
 ];
-
 /* --------------------------------------------------------------------- */
 /* 4. PROJETOS                                                            */
 /* -----------------------------------------------------------------------
