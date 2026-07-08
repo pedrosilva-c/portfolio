@@ -120,7 +120,7 @@ const EXPERIENCE_DATA = [
   {
     company: "TransMargoo",
     role: "Jovem Aprendiz de TI",
-    period: "Fev 2025 — Atual",
+    period: "Abril 2026 — Atual",
     current: true,
     summary: "Atuação prática em infraestrutura corporativa, unindo suporte técnico de primeira e segunda linha à administração direta de identidade e acesso em ambiente <strong>Windows Server</strong>.",
     activities: [
@@ -411,12 +411,12 @@ const BLOG_CATEGORIES = ["Todos", "Infraestrutura", "Windows Server", "Azure", "
 /* 9. JORNADA (seção "Minha Jornada")                                     */
 /* --------------------------------------------------------------------- */
 const JOURNEY_DATA = [
-  { year: "Out 2024", label: "Primeiro contato com Infraestrutura" },
-  { year: "Fev 2025", label: "Entrada na TransMargoo (Jovem Aprendiz)" },
-  { year: "Mai 2025", label: "Windows Server" },
-  { year: "Ago 2025", label: "Active Directory" },
-  { year: "Jan 2026", label: "GPO, DNS & DHCP" },
-  { year: "Mar 2026", label: "PowerShell" },
+  { year: "Jan 2024", label: "Primeiro contato com Infraestrutura" },
+  { year: "Abril 2026", label: "Entrada na TransMargoo (Jovem Aprendiz)" },
+  { year: "Maio 2026", label: "Windows Server" },
+  { year: "Maio 2026", label: "Active Directory" },
+  { year: "Jun 2026", label: "GPO, DNS & DHCP" },
+  { year: "Jul 2026", label: "PowerShell" },
   { year: "2026", label: "Microsoft Azure (AZ-900)" },
   { year: "2027", label: "Cloud (AZ-104 · Linux · Docker)" },
   { year: "2028", label: "Cloud Engineer" }
@@ -436,9 +436,8 @@ const PROFILE_DATA = {
     "PowerShell",
     "Azure"
   ],
-  linkedin: "https://www.linkedin.com/in/seu-usuario",
-  github: "https://github.com/seu-usuario",
-  email: "seuemail@exemplo.com",
-  whatsapp: "https://wa.me/5500000000000",
+  linkedin: "https://www.linkedin.com/in/pedrosilva-sistemas/",
+  github: "https://github.com/pedrosilva-c",
+  email: "contatopedromarketinglab@gmail.com",
   resume: "assets/curriculo-pedro-henrique.pdf"
 };
