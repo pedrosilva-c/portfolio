@@ -122,10 +122,10 @@ const PROJECTS_DATA = [
       "Integração Gmail somente leitura (OAuth, escopo gmail.readonly) e histórico local em SQLite.",
       "Escrita de notas Markdown no Obsidian preservando edições manuais."
     ],
-    tests: "566 testes automatizados (unittest) passando, 94 opcionais pulados; a suíte roda isolada dos dados reais.",
+    tests: "566 testes Python (unittest) e 97 testes da extensão (node:test) passando; a suíte roda isolada dos dados reais e falha se algum dado real mudar.",
     limits: "Ainda não validado de ponta a ponta com contas reais; leitura limitada a uma disciplina piloto. Não é um aplicativo oficial da instituição.",
     tech: ["Python", "PySide6", "Playwright", "SQLite", "Gmail API", "JavaScript"],
-    repo: null
+    repo: "https://github.com/pedrosilva-c/campus-ai"
   },
   {
     id: "kaizen-tech",
@@ -141,10 +141,10 @@ const PROJECTS_DATA = [
       "Verificação de atualizações pendentes, programas de inicialização e plano de energia.",
       "Backup rápido de Desktop, Documentos e Imagens; relatório do atendimento em PDF."
     ],
-    tests: "Sem testes automatizados; validado manualmente em máquina própria.",
+    tests: "13 testes automatizados das funções auxiliares e da limpeza segura (inclusive contra junções que apontam para fora da pasta); ações de manutenção validadas manualmente em máquina própria.",
     limits: "Exige privilégio de administrador e altera configurações do Windows (registro, plano de energia). Use apenas em máquinas sob sua responsabilidade.",
     tech: ["Python", "Tkinter", "winreg", "PowerShell", "PyInstaller"],
-    repo: null
+    repo: "https://github.com/pedrosilva-c/kaizen-tech"
   },
   {
     id: "tm-telemetria",
@@ -178,7 +178,8 @@ const PROJECTS_DATA = [
     tests: "27 verificações de interface em Chromium, incluindo ausência de rolagem horizontal de 320 a 1440 px.",
     limits: "Não é uma auditoria WCAG; faltam testes com leitores de tela e com pessoas com deficiência.",
     tech: ["HTML", "CSS", "JavaScript", "Web Speech API", "VLibras"],
-    repo: null,
+    repo: "https://github.com/pedrosilva-c/inclusao-360",
+    demo: "https://pedrosilva-c.github.io/inclusao-360/",
     note: "Projeto individual."
   },
   {

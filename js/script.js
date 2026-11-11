@@ -105,9 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
         </details>
         <div class="project-foot">
           ${p.note ? `<span class="project-note">${esc(p.note)}</span>` : "<span></span>"}
-          ${p.repo
-            ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>Repositório</a>`
-            : `<span class="mono small muted">repositório em preparação</span>`}
+          <span class="actions">
+            ${p.demo ? `<a class="btn" href="${esc(p.demo)}" target="_blank" rel="noopener">Demo ao vivo<span class="visually-hidden"> de ${esc(p.title)}</span></a>` : ""}
+            ${p.repo
+              ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>Repositório<span class="visually-hidden"> de ${esc(p.title)}</span></a>`
+              : `<span class="mono small muted">${p.status === "Interno" ? "código não público" : "repositório em preparação"}</span>`}
+          </span>
         </div>
       </article>`).join("");
   }
