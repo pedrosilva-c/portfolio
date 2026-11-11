@@ -1,458 +1,292 @@
 /* ==========================================================================
-   DATA.JS
+   DATA.JS — conteúdo do portfólio
    -----------------------------------------------------------------------
-   Este arquivo centraliza TODO o conteúdo dinâmico do portfólio.
-   Para atualizar números, tecnologias, laboratórios, roadmap, certificações
-   ou posts do blog, edite apenas os valores abaixo — o restante do site
-   é renderizado automaticamente por script.js.
+   Fonte única do conteúdo renderizado por script.js.
+   Regra editorial: só entra aqui o que tem comprovação (código, teste,
+   certificado, currículo ou confirmação do próprio Pedro). O que ainda não
+   tem evidência aparece com status honesto (WIP, Em documentação, Planejado).
    ========================================================================== */
 
-/* --------------------------------------------------------------------- */
-/* 1. ESTATÍSTICAS (seção "Home" / contadores animados)                   */
-/* --------------------------------------------------------------------- */
-const STATS_DATA = [
-  { icon: "fa-solid fa-diagram-project", value: 6, suffix: "+", label: "Projetos" },
-  { icon: "fa-solid fa-flask", value: 4, suffix: "", label: "Laboratórios" },
-  { icon: "fa-solid fa-wrench", value: 3, suffix: "", label: "Casos técnicos" },
-  { icon: "fa-solid fa-layer-group", value: 9, suffix: "", label: "Tecnologias" },
-  { icon: "fa-solid fa-clock", value: 420, suffix: "h", label: "Horas estudadas" },
-  { icon: "fa-solid fa-graduation-cap", value: 3, suffix: "", label: "Cursos concluídos" },
-  { icon: "fa-solid fa-certificate", value: 1, suffix: "", label: "Certificações" }
-];
-
-/* --------------------------------------------------------------------- */
-/* 2. TECNOLOGIAS                                                         */
-/* -----------------------------------------------------------------------
-   Níveis expressos de forma qualitativa e verificável — sem percentuais
-   genéricos, que não comunicam credibilidade a recrutadores técnicos.
-   `statusKey` deve corresponder a uma chave de TECH_STATUS_LEVELS abaixo.
-   ========================================================================== */
-const TECH_STATUS_LEVELS = {
-  pratica:      { icon: "fa-solid fa-circle-check", label: "Experiência prática",              className: "level-pratica" },
-  corporativo:  { icon: "fa-solid fa-building",      label: "Utilizado em ambiente corporativo", className: "level-corporativo" },
-  desenvolvimento: { icon: "fa-solid fa-book-open",  label: "Em desenvolvimento",                 className: "level-dev" },
-  planejado:    { icon: "fa-solid fa-bullseye",      label: "Planejado",                          className: "level-planejado" }
+/* 1. PERFIL ---------------------------------------------------------------- */
+const PROFILE_DATA = {
+  name: "Pedro Henrique da Silva Pereira",
+  shortName: "Pedro Henrique",
+  headline: "Suporte e Infraestrutura de TI | Automação e Sistemas",
+  email: "contatopedromarketinglab@gmail.com",
+  linkedin: "https://www.linkedin.com/in/pedrosilva-sistemas/",
+  github: "https://github.com/pedrosilva-c",
+  site: "https://pedrosilva-c.github.io/portfolio/",
+  resume: "assets/curriculo-pedro-henrique.pdf"
 };
 
-const TECH_DATA = [
-  {
-    name: "Windows Server",
-    icon: "fa-brands fa-windows",
-    statusKey: "corporativo",
-    description: "Administração de servidores Windows Server em ambiente de produção, incluindo papéis de rede, armazenamento e manutenção preventiva.",
-    whereUsed: "Ambiente corporativo (TransMargoo) e laboratórios próprios (LAB-001, LAB-002).",
-    nextGoal: "Aprofundar em Failover Clustering e Hyper-V."
-  },
-  {
-    name: "Active Directory",
-    icon: "fa-solid fa-sitemap",
-    statusKey: "corporativo",
-    description: "Criação e organização de usuários, grupos, OUs e delegação de permissões em um domínio corporativo real.",
-    whereUsed: "Ambiente corporativo (TransMargoo) e laboratório LAB-001.",
-    nextGoal: "Estudar Active Directory Certificate Services (AD CS)."
-  },
-  {
-    name: "GPO, DNS & DHCP",
-    icon: "fa-solid fa-network-wired",
-    statusKey: "corporativo",
-    description: "Configuração de políticas de grupo, zonas de resolução de nomes e escopos de rede para padronizar o ambiente.",
-    whereUsed: "Suporte diário N1/N2 e laboratórios LAB-001 e LAB-003.",
-    nextGoal: "Automatizar auditoria de GPOs aplicadas por OU."
-  },
-  {
-    name: "PowerShell",
-    icon: "fa-solid fa-terminal",
-    statusKey: "desenvolvimento",
-    description: "Criação de scripts para automatizar tarefas repetitivas de administração, como criação em lote de usuários.",
-    whereUsed: "Estudo individual e laboratório LAB-004 (em construção).",
-    nextGoal: "Certificação focada em automação com PowerShell para administradores."
-  },
-  {
-    name: "Microsoft Azure",
-    icon: "fa-brands fa-microsoft",
-    statusKey: "desenvolvimento",
-    description: "Fundamentos de identidade, assinaturas, grupos de recursos e provisionamento de máquinas virtuais na nuvem Microsoft.",
-    whereUsed: "Estudo dirigido para a certificação AZ-900.",
-    nextGoal: "Concluir AZ-900 e avançar para AZ-104 (Azure Administrator)."
-  },
-  {
-    name: "Linux",
-    icon: "fa-brands fa-linux",
-    statusKey: "desenvolvimento",
-    description: "Primeiros contatos com linha de comando, permissões e gerenciamento de serviços em sistemas Linux.",
-    whereUsed: "Estudo individual, diversificando além do ecossistema Windows.",
-    nextGoal: "Praticar administração de serviços via systemd e SSH hardening."
-  },
-  {
-    name: "Docker",
-    icon: "fa-brands fa-docker",
-    statusKey: "planejado",
-    description: "Containerização de aplicações e serviços como base para arquiteturas modernas de infraestrutura.",
-    whereUsed: "Ainda não aplicado — próxima etapa do roadmap técnico.",
-    nextGoal: "Primeiro laboratório prático com Docker e Docker Compose."
-  },
-  {
-    name: "Python",
-    icon: "fa-brands fa-python",
-    statusKey: "planejado",
-    description: "Linguagem de apoio para automação de tarefas de infraestrutura e integração com APIs de nuvem.",
-    whereUsed: "Ainda não aplicado — planejado para 2027 no roadmap técnico.",
-    nextGoal: "Automatizar rotinas simples de infraestrutura com scripts Python."
-  },
-  {
-    name: "AWS",
-    icon: "fa-brands fa-aws",
-    statusKey: "planejado",
-    description: "Fundamentos de computação em nuvem na Amazon Web Services, para complementar a base já construída em Azure.",
-    whereUsed: "Ainda não aplicado — planejado para 2027 no roadmap técnico.",
-    nextGoal: "Certificação AWS Cloud Practitioner."
-  }
-];
+/* 2. TECNOLOGIAS -------------------------------------------------------------
+   Cada item diz onde foi usado de fato. Níveis qualitativos, sem percentuais. */
+const TECH_STATUS_LEVELS = {
+  corporativo: { label: "Uso em ambiente corporativo", className: "badge-ok" },
+  projeto:     { label: "Uso em projetos próprios",    className: "badge-accent" },
+  fundamentos: { label: "Fundamentos (curso concluído)", className: "badge-neutral" },
+  estudo:      { label: "Em estudo",                   className: "badge-wip" }
+};
 
-/* --------------------------------------------------------------------- */
-/* 3. EXPERIÊNCIA PROFISSIONAL (timeline)                                 */
-/* -----------------------------------------------------------------------
-   Tom de descrição inspirado em perfis sênior de LinkedIn: contexto do
-   cargo em primeiro parágrafo, seguido de responsabilidades objetivas com
-   as tecnologias-chave destacadas via <strong> para leitura rápida (F-pattern).
-   ========================================================================== */
-const EXPERIENCE_DATA = [
+const TECH_GROUPS = [
   {
-    company: "TransMargoo",
-    role: "Jovem Aprendiz de TI",
-    period: "Abril 2026 — Atual",
-    current: true,
-    summary: "Atuação prática em infraestrutura corporativa, unindo suporte técnico de primeira e segunda linha à administração direta de identidade e acesso em ambiente <strong>Windows Server</strong>.",
-    activities: [
-      "Suporte técnico <strong>N1 e N2</strong> a usuários, estações de trabalho e periféricos de rede",
-      "Administração de <strong>Active Directory</strong>: criação de usuários, grupos de segurança e organização de <strong>OUs</strong>",
-      "Definição e manutenção de <strong>permissões</strong> de acesso alinhadas a políticas de <strong>GPO</strong>",
-      "Suporte e manutenção contínua da infraestrutura <strong>Windows Server</strong>, incluindo serviços de <strong>DNS</strong> e <strong>DHCP</strong>",
-      "Manutenção preventiva e corretiva de <strong>hardware</strong> e <strong>software</strong>, reduzindo tempo de indisponibilidade",
-      "Apoio na gestão de regras de <strong>firewall</strong> em conjunto com a equipe de segurança",
-      "Documentação técnica de procedimentos e chamados, contribuindo para a base de conhecimento da equipe"
+    title: "Infraestrutura e suporte",
+    items: [
+      { name: "Suporte técnico e hardware", statusKey: "corporativo",
+        whereUsed: "Atendimento a usuários, manutenção de computadores, impressoras e periféricos (Transmargoo e laboratórios da AEDB)." },
+      { name: "Windows e Windows Server", statusKey: "corporativo",
+        whereUsed: "Retomada de um servidor após queda de energia (Transmargoo); laboratório próprio com Windows Server 2019 em VirtualBox." },
+      { name: "Active Directory e GPO", statusKey: "corporativo",
+        whereUsed: "Participação na gestão de usuários, acessos e permissões; GPOs para padronização de estações e mapeamento de unidades." },
+      { name: "Redes: TCP/IP, DHCP, DNS, Wi-Fi", statusKey: "corporativo",
+        whereUsed: "Correção de conflito de endereçamento IP, rede Wi-Fi de visitantes isolada da rede interna, cabeamento e crimpagem." },
+      { name: "PowerShell", statusKey: "estudo",
+        whereUsed: "Scripts de apoio (inventário de estação) e comandos chamados pelo Kaizen Tech. Repositório de scripts em preparação." }
     ]
   },
   {
-  company: "Faculdade UniDomBosco — RJ",
-  role: "Estagiário de Suporte Técnico",
-  period: "Fevereiro 2026 — Abril 2026",
-  current: false,
-  summary: "Atuação em suporte técnico e infraestrutura de TI no ambiente acadêmico, prestando atendimento aos setores da instituição, realizando manutenção de equipamentos, organização da rede e apoio na implantação de laboratórios de informática.",
-  activities: [
-    "Suporte técnico <strong>N1</strong> a colaboradores, realizando atendimento presencial e remoto para resolução de incidentes",
-    "Manutenção preventiva e corretiva de <strong>hardware</strong> e <strong>software</strong> em computadores e equipamentos institucionais",
-    "Instalação, organização e crimpagem de <strong>cabos de rede</strong>, garantindo conectividade entre setores",
-    "Atendimento aos diferentes setores da instituição, prestando suporte operacional e solucionando demandas de TI",
-    "Elaboração e atualização de <strong>planilhas</strong> para controle de ativos, inventário e atividades administrativas",
-    "Configuração e preparação de estações de trabalho para novos usuários e ambientes acadêmicos",
-    "Participação na implantação de um <strong>laboratório de informática completo</strong>, auxiliando na instalação, organização e configuração da infraestrutura e dos equipamentos"
-  ]
-}
-];
-/* --------------------------------------------------------------------- */
-/* 4. PROJETOS                                                            */
-/* -----------------------------------------------------------------------
-   Estrutura: objective, problem, solution, tech, result, status.
-   Cada card renderiza um resumo; o modal ("Ver detalhes") exibe o
-   conjunto completo dos campos abaixo.
-   ========================================================================== */
-const PROJECTS_DATA = [
-  {
-    id: "proj-windows-server",
-    title: "Infraestrutura Windows Server",
-    icon: "fa-solid fa-server",
-    description: "Implantação de um ambiente Windows Server completo, incluindo papéis de rede essenciais para uma pequena infraestrutura corporativa.",
-    tech: ["Windows Server 2022", "DNS", "DHCP", "File Server"],
-    objective: "Simular a implantação de um servidor corporativo do zero, configurando papéis essenciais de rede.",
-    problem: "Uma infraestrutura recém-criada não possuía resolução de nomes, distribuição automática de IPs nem local centralizado de arquivos.",
-    solution: "Instalação e configuração dos papéis de DNS, DHCP e File Server no Windows Server, com escopos e zonas planejados para evitar conflitos e permissões NTFS estruturadas por departamento.",
-    result: "Ambiente funcional com resolução de nomes, distribuição de IPs e compartilhamento de arquivos operando de forma estável.",
-    status: "Concluído"
+    title: "Desenvolvimento e automação",
+    items: [
+      { name: "Python", statusKey: "projeto",
+        whereUsed: "Campus AI (PySide6, Playwright), Kaizen Tech (Tkinter, winreg) e backend do TM Telemetria." },
+      { name: "FastAPI e SQLite", statusKey: "projeto",
+        whereUsed: "API local do TM Telemetria; persistência local do Campus AI." },
+      { name: "JavaScript, TypeScript e React", statusKey: "projeto",
+        whereUsed: "Inclusão 360°, extensão de navegador do Campus AI e interface do TM Telemetria." },
+      { name: "Testes automatizados", statusKey: "projeto",
+        whereUsed: "unittest (Campus AI) e pytest (TM Telemetria), executados localmente antes de cada entrega." }
+    ]
   },
   {
-    id: "proj-active-directory",
-    title: "Active Directory Corporativo",
-    icon: "fa-solid fa-sitemap",
-    description: "Estruturação de um domínio Active Directory com unidades organizacionais, grupos de segurança e delegação de permissões.",
-    tech: ["Active Directory", "DNS", "OU", "GPO"],
-    objective: "Organizar uma estrutura de domínio hierárquica que reflita departamentos reais de uma empresa.",
-    problem: "Sem uma hierarquia de OUs bem definida, a aplicação de políticas e a delegação de permissões se tornam confusas e difíceis de auditar.",
-    solution: "Planejamento de uma árvore de OUs por tipo de objeto e departamento, com grupos de segurança específicos e delegação granular de controle administrativo.",
-    result: "Estrutura organizacional replicável, com controle centralizado de usuários, grupos e permissões.",
-    status: "Concluído"
-  },
-  {
-    id: "proj-powershell",
-    title: "Automação com PowerShell",
-    icon: "fa-solid fa-terminal",
-    description: "Scripts para automatizar tarefas repetitivas de administração, como criação em massa de usuários a partir de planilhas CSV.",
-    tech: ["PowerShell", "CSV", "Active Directory Module"],
-    objective: "Reduzir o tempo gasto em tarefas manuais e repetitivas de administração de usuários.",
-    problem: "A criação manual de dezenas de contas de usuário, uma a uma, consumia tempo excessivo e aumentava o risco de erro humano.",
-    solution: "Script em PowerShell que lê um arquivo CSV com os dados dos novos colaboradores e cria as contas automaticamente na OU correta, com tratamento de exceções e log de execução.",
-    result: "Script funcional capaz de criar dezenas de contas de usuário em segundos, com log de execução.",
-    status: "Concluído"
-  },
-  {
-    id: "proj-azure",
-    title: "Fundamentos de Microsoft Azure",
-    icon: "fa-brands fa-microsoft",
-    description: "Estudos práticos e laboratórios iniciais na nuvem Microsoft Azure, com foco em identidade e recursos básicos.",
-    tech: ["Azure Portal", "Azure AD", "Máquinas Virtuais"],
-    objective: "Construir uma base sólida para a certificação AZ-900 e futura atuação como Cloud Engineer.",
-    problem: "Boa parte do conhecimento em infraestrutura local (on-premises) não se traduz automaticamente para a nuvem sem entender seus conceitos fundamentais.",
-    solution: "Estudo estruturado e laboratórios práticos cobrindo assinaturas, grupos de recursos, identidade e provisionamento de máquinas virtuais no Azure.",
-    result: "Primeiros recursos provisionados na nuvem e entendimento consolidado dos conceitos fundamentais do Azure.",
-    status: "Em andamento"
-  },
-  {
-    id: "proj-linux",
-    title: "Introdução a Servidores Linux",
-    icon: "fa-brands fa-linux",
-    description: "Primeiros contatos com administração de sistemas Linux, linha de comando e gerenciamento de serviços.",
-    tech: ["Linux", "Bash", "SSH"],
-    objective: "Diversificar conhecimento em sistemas operacionais além do ecossistema Windows.",
-    problem: "Grande parte da infraestrutura de nuvem e de automação moderna depende de conhecimento sólido em Linux, ecossistema pouco explorado até então.",
-    solution: "Prática de linha de comando, gerenciamento de permissões e serviços via SSH em ambiente de laboratório.",
-    result: "Familiaridade inicial com comandos essenciais, permissões e gerenciamento de pacotes.",
-    status: "Em andamento"
-  },
-  {
-    id: "proj-docker",
-    title: "Contêineres com Docker",
-    icon: "fa-brands fa-docker",
-    description: "Projeto planejado para estudo de containerização de aplicações e serviços de infraestrutura.",
-    tech: ["Docker", "Docker Compose"],
-    objective: "Entender o funcionamento de contêineres como base para arquiteturas modernas de infraestrutura.",
-    problem: "Arquiteturas modernas de infraestrutura dependem cada vez mais de contêineres, tema ainda não coberto na trajetória atual.",
-    solution: "Laboratório planejado para configurar aplicações containerizadas com Docker e orquestração básica via Docker Compose.",
-    result: "Projeto a ser iniciado como próxima etapa do roadmap de estudos.",
-    status: "Planejado"
+    title: "Nuvem e segurança",
+    items: [
+      { name: "AWS", statusKey: "fundamentos",
+        whereUsed: "AWS Academy Cloud Foundations (20 h); arquitetura planejada em serviços AWS no projeto BarberFlow." },
+      { name: "Cibersegurança", statusKey: "fundamentos",
+        whereUsed: "Cisco Networking Academy — Introduction to Cybersecurity." },
+      { name: "Microsoft Azure", statusKey: "estudo",
+        whereUsed: "Estudo dos fundamentos, sem projeto publicado ainda." }
+    ]
   }
 ];
 
-/* --------------------------------------------------------------------- */
-/* 4.1 CASOS TÉCNICOS                                                     */
-/* -----------------------------------------------------------------------
-   Problemas reais de suporte/infraestrutura resolvidos no dia a dia,
-   descritos no formato Problema → Contexto → Solução → Resultado,
-   com as tecnologias envolvidas. Formato pensado para recrutadores
-   técnicos avaliarem raciocínio de troubleshooting, não só teoria.
-   ========================================================================== */
+/* 3. EXPERIÊNCIA ------------------------------------------------------------- */
+const EXPERIENCE_DATA = [
+  {
+    company: "Transmargoo Turismo e Fretamento",
+    role: "Jovem Aprendiz — equipe de TI",
+    period: "abr/2026 — atual",
+    current: true,
+    summary: "Suporte e infraestrutura em ambiente corporativo, com equipe interna e prestadores terceirizados.",
+    activities: [
+      "Atendimento a usuários e manutenção de computadores Windows, impressoras, softwares e conectividade; diagnóstico e solução de incidentes de hardware e rede.",
+      "Participação na gestão de usuários, acessos e permissões no Active Directory; configuração de GPOs para padronização de estações, restrições e mapeamento de unidades de rede.",
+      "Restabelecimento do funcionamento de um servidor Windows Server após queda de energia, apoiando a retomada dos sistemas internos.",
+      "Correção de conflito de endereçamento IP entre roteador e gateway; configuração de Wi-Fi para visitantes com isolamento da rede interna.",
+      "Diagnóstico de placa-mãe com defeito e reaproveitamento de componentes.",
+      "Colaboração com a área de telemetria, registros operacionais e evolução do site corporativo junto à equipe de desenvolvimento terceirizada."
+    ]
+  },
+  {
+    company: "Faculdade Dom Bosco (AEDB) — laboratórios de informática",
+    role: "Estagiário de Suporte Técnico",
+    period: "fev/2025 — abr/2026",
+    current: false,
+    summary: "Suporte técnico aos laboratórios e setores da instituição.",
+    activities: [
+      "Atendimento N1 presencial a alunos, professores e colaboradores.",
+      "Manutenção preventiva e corretiva de computadores: formatação, instalação de Windows, drivers, softwares, impressoras e periféricos.",
+      "Instalação, organização e crimpagem de cabos de rede.",
+      "Preparação de estações de trabalho para novos usuários e para as atividades acadêmicas.",
+      "Planilhas de controle de ativos e inventário.",
+      "Participação na implantação de um laboratório de informática: instalação, organização e configuração dos equipamentos."
+    ]
+  }
+];
+
+/* 4. PROJETOS ----------------------------------------------------------------
+   status: "Funcional" | "WIP" | "Concluído" | "Interno" | "Especificação"
+   repo: URL do repositório público ou null enquanto não for publicado.       */
+const PROJECTS_DATA = [
+  {
+    id: "campus-ai",
+    title: "Campus AI",
+    kind: "Desenvolvimento · Automação",
+    status: "WIP",
+    summary: "Assistente acadêmico para Windows que organiza materiais, atividades e prazos do Moodle em notas locais do Obsidian.",
+    problem: "Acompanhar várias disciplinas no AVA exige abrir cada página para descobrir o que mudou e o que vence.",
+    built: [
+      "Interface desktop em PySide6 com modo de demonstração (dados fictícios).",
+      "Leitura de uma disciplina autorizada por navegador dedicado (Playwright), com login manual do aluno e sem envios.",
+      "Extensão de navegador \"Companion\" em JavaScript, comunicando com o app local.",
+      "Integração Gmail somente leitura (OAuth, escopo gmail.readonly) e histórico local em SQLite.",
+      "Escrita de notas Markdown no Obsidian preservando edições manuais."
+    ],
+    tests: "566 testes automatizados (unittest) passando, 94 opcionais pulados; a suíte roda isolada dos dados reais.",
+    limits: "Ainda não validado de ponta a ponta com contas reais; leitura limitada a uma disciplina piloto. Não é um aplicativo oficial da instituição.",
+    tech: ["Python", "PySide6", "Playwright", "SQLite", "Gmail API", "JavaScript"],
+    repo: null
+  },
+  {
+    id: "kaizen-tech",
+    title: "Kaizen Tech",
+    kind: "Suporte · Automação Windows",
+    status: "Funcional",
+    summary: "Ferramenta de manutenção rápida para técnicos: diagnóstico da máquina, ações de limpeza e ajuste com confirmação, e relatório do atendimento em PDF.",
+    problem: "Atendimentos de manutenção repetem as mesmas verificações manuais e raramente deixam um registro para o cliente.",
+    built: [
+      "Painel de informações do sistema (SO, CPU, RAM, disco).",
+      "Ponto de restauração antes das alterações e confirmação nas ações destrutivas.",
+      "Limpeza de temporários, cache de navegadores e lixeira; verificação de disco somente leitura.",
+      "Verificação de atualizações pendentes, programas de inicialização e plano de energia.",
+      "Backup rápido de Desktop, Documentos e Imagens; relatório do atendimento em PDF."
+    ],
+    tests: "Sem testes automatizados; validado manualmente em máquina própria.",
+    limits: "Exige privilégio de administrador e altera configurações do Windows (registro, plano de energia). Use apenas em máquinas sob sua responsabilidade.",
+    tech: ["Python", "Tkinter", "winreg", "PowerShell", "PyInstaller"],
+    repo: null
+  },
+  {
+    id: "tm-telemetria",
+    title: "TM Telemetria",
+    kind: "Sistema interno · Relatórios",
+    status: "Interno",
+    summary: "Sistema local de análise operacional da frota: importação de planilhas, conferência de dados e relatórios em PDF e XLSX.",
+    problem: "Relatórios operacionais montados à mão a partir de planilhas exportadas, sem conferência sistemática dos dados.",
+    built: [
+      "Importação de planilhas CSV/XLSX com conferência e reversão de importações.",
+      "Análise de ocorrências e de consumo/ociosidade da frota.",
+      "Geração de relatórios em PDF e XLSX, com histórico."
+    ],
+    tests: "Suíte automatizada no backend (pytest) executada a cada alteração.",
+    limits: "Projeto da empresa: código, regras e dados não são públicos. Uma demonstração independente, com dados 100% fictícios, está em planejamento.",
+    tech: ["Python", "FastAPI", "React", "TypeScript", "SQLite"],
+    repo: null
+  },
+  {
+    id: "inclusao-360",
+    title: "Inclusão 360°",
+    kind: "Acadêmico · Acessibilidade web",
+    status: "Concluído",
+    summary: "Site demonstrativo de acessibilidade digital: o visitante experimenta recursos e corrige um portal com problemas de acessibilidade.",
+    problem: "Explicar acessibilidade digital de forma prática para quem nunca usou tecnologias assistivas.",
+    built: [
+      "Ajustes de tamanho de texto, contraste, leitura simples e redução de distrações.",
+      "Leitura em voz alta (Web Speech API) e integração com o VLibras.",
+      "Desafio interativo de correção de um portal fictício e apresentação guiada em quatro etapas."
+    ],
+    tests: "27 verificações de interface em Chromium, incluindo ausência de rolagem horizontal de 320 a 1440 px.",
+    limits: "Não é uma auditoria WCAG; faltam testes com leitores de tela e com pessoas com deficiência.",
+    tech: ["HTML", "CSS", "JavaScript", "Web Speech API", "VLibras"],
+    repo: null,
+    note: "Projeto individual."
+  },
+  {
+    id: "barberflow",
+    title: "BarberFlow",
+    kind: "Acadêmico · Projeto Integrador em grupo",
+    status: "Especificação",
+    summary: "Especificação de uma aplicação web de agendamento para barbearias de pequeno porte, com arquitetura planejada em serviços AWS.",
+    problem: "Pequenas barbearias organizam a agenda por mensagens e anotações, sem um sistema próprio.",
+    built: [
+      "Doze requisitos funcionais, oito não funcionais e regras de negócio.",
+      "Diagramas de casos de uso e de classes (Astah).",
+      "Arquitetura planejada em serviços AWS, com módulo de avaliações em Firebase."
+    ],
+    tests: "Não se aplica: entrega de especificação. A agenda própria ainda não foi implementada.",
+    limits: "Trabalho de um grupo de sete integrantes; a autoria é coletiva.",
+    tech: ["UML", "Astah", "AWS (planejado)", "Firebase"],
+    repo: null,
+    note: "Projeto em grupo — créditos de todos os integrantes no repositório."
+  }
+];
+
+/* 5. CASOS TÉCNICOS ------------------------------------------------------------
+   Ocorrências reais de suporte, descritas sem nomes, setores identificáveis,
+   endereços ou detalhes internos do ambiente.                                    */
 const CASOS_TECNICOS_DATA = [
   {
-    id: "caso-gpo-lentidao",
-    title: "Lentidão no logon causada por GPOs conflitantes",
-    problem: "Usuários de uma OU específica relatavam logon extremamente lento, levando mais de 3 minutos até a área de trabalho carregar.",
-    context: "A OU acumulava GPOs criadas por diferentes responsáveis ao longo do tempo, sem revisão de sobreposição ou de scripts de logon.",
-    solution: "Uso do Group Policy Results (gpresult /h) para mapear todas as políticas aplicadas, identificação de duas GPOs com mapeamentos de rede duplicados e um script de logon obsoleto, e consolidação em uma única política otimizada.",
-    result: "Tempo de logon reduzido de ~3 minutos para menos de 30 segundos, sem alteração de comportamento esperado para o usuário.",
+    title: "Logon lento causado por GPOs sobrepostas",
+    problem: "Usuários de uma OU levavam cerca de 3 minutos para chegar à área de trabalho após o logon.",
+    context: "A OU acumulava GPOs criadas por responsáveis diferentes ao longo do tempo, sem revisão de sobreposição nem dos scripts de logon.",
+    solution: "Mapeamento das políticas aplicadas com gpresult /h; identificadas duas GPOs com mapeamentos de rede duplicados e um script de logon obsoleto, consolidados em uma única política.",
+    result: "Logon passou a levar menos de 30 segundos, sem mudança no comportamento esperado para o usuário.",
     tech: ["GPO", "Active Directory", "gpresult"]
   },
   {
-    id: "caso-dhcp-conflito-ip",
-    title: "Conflito de IP após expansão do parque de máquinas",
-    problem: "Estações de trabalho começaram a apresentar erros intermitentes de rede após a entrada de novos equipamentos no escritório.",
-    context: "O escopo DHCP configurado originalmente não previa o crescimento do número de dispositivos, gerando sobreposição com IPs reservados manualmente.",
-    solution: "Auditoria do escopo DHCP, identificação de reservas estáticas conflitantes, ampliação da faixa de endereços disponíveis e padronização do uso de reservas por endereço MAC.",
-    result: "Eliminação total dos conflitos de IP reportados, com margem de crescimento planejada para os próximos 12 meses.",
+    title: "Conflito de IP após a entrada de novos equipamentos",
+    problem: "Estações passaram a ter falhas de rede intermitentes depois que novos equipamentos foram ligados.",
+    context: "O escopo DHCP não previa o crescimento do parque e se sobrepunha a endereços fixados manualmente.",
+    solution: "Auditoria do escopo, remoção das sobreposições com reservas estáticas, ampliação da faixa disponível e padronização das reservas por endereço MAC.",
+    result: "Os conflitos relatados deixaram de ocorrer e a faixa passou a ter margem para crescimento.",
     tech: ["DHCP", "DNS", "Redes"]
   },
   {
-    id: "caso-permissao-ntfs",
-    title: "Acesso indevido a pasta financeira compartilhada",
-    problem: "Um usuário de outro departamento conseguiu acessar arquivos da pasta compartilhada do setor financeiro.",
-    context: "As permissões de compartilhamento (nível de rede) estavam mais abertas do que as permissões NTFS, e um grupo de segurança havia sido adicionado incorretamente à pasta.",
-    solution: "Revisão completa das permissões NTFS e de compartilhamento da pasta, remoção do grupo incorreto, e padronização do processo de concessão de acesso via grupos de segurança específicos por departamento.",
-    result: "Acesso restrito corretamente ao grupo do financeiro, com processo documentado para evitar recorrência.",
+    title: "Acesso indevido a uma pasta compartilhada restrita",
+    problem: "Um usuário de outro setor conseguia abrir arquivos de uma pasta compartilhada restrita.",
+    context: "As permissões de compartilhamento estavam mais abertas que as NTFS, e um grupo de segurança havia sido adicionado à pasta por engano.",
+    solution: "Revisão das permissões de compartilhamento e NTFS, remoção do grupo incorreto e padronização da concessão de acesso por grupos de segurança específicos.",
+    result: "Acesso restrito ao grupo correto, com o procedimento documentado para evitar recorrência.",
     tech: ["NTFS", "Active Directory", "File Server"]
   }
 ];
 
-/* --------------------------------------------------------------------- */
-/* 4.2 SCRIPTS (GITHUB)                                                   */
-/* -----------------------------------------------------------------------
-   Vitrine de scripts publicados no GitHub. Cada item aponta para o
-   repositório real — atualize a URL assim que publicar o script.
-   ========================================================================== */
-const SCRIPTS_DATA = [
-  {
-    name: "New-ADUsersFromCSV",
-    icon: "fa-solid fa-terminal",
-    description: "Script PowerShell que lê um arquivo CSV e cria usuários em massa no Active Directory, já posicionando cada um na OU correta.",
-    objective: "Eliminar a criação manual e repetitiva de contas de usuário.",
-    tech: ["PowerShell", "Active Directory Module", "CSV"],
-    github: "https://github.com/seu-usuario/new-adusers-from-csv"
-  },
-  {
-    name: "Get-InactiveComputers",
-    icon: "fa-solid fa-desktop",
-    description: "Script que varre o Active Directory em busca de computadores inativos há mais de X dias, gerando um relatório para limpeza do domínio.",
-    objective: "Facilitar a auditoria e higienização periódica de objetos de computador no AD.",
-    tech: ["PowerShell", "Active Directory"],
-    github: "https://github.com/seu-usuario/get-inactive-computers"
-  },
-  {
-    name: "Backup-DHCPScope",
-    icon: "fa-solid fa-network-wired",
-    description: "Automação de backup periódico da configuração de escopos DHCP, com exportação para armazenamento externo.",
-    objective: "Garantir recuperação rápida da configuração de rede em caso de falha do servidor.",
-    tech: ["PowerShell", "DHCP", "Automação"],
-    github: "https://github.com/seu-usuario/backup-dhcp-scope"
-  }
-];
-
-/* --------------------------------------------------------------------- */
-/* 5. LABORATÓRIOS (cada um possui página própria em /labs/)              */
-/* --------------------------------------------------------------------- */
+/* 6. LABORATÓRIOS -------------------------------------------------------------- */
 const LABS_DATA = [
   {
-    id: "lab-001",
     code: "LAB-001",
-    title: "Implantação de Domínio Active Directory",
-    description: "Criação de um domínio do zero, com configuração de DNS, DHCP, unidades organizacionais, usuários, grupos e permissões.",
-    tech: ["Active Directory", "DNS", "DHCP", "OU", "Usuários", "Grupos", "Permissões"],
-    status: "Concluído",
-    date: "Jan 2026",
+    title: "Domínio Active Directory em VirtualBox",
+    description: "Ambiente com um controlador de domínio e duas estações em rede interna isolada. Evidências e passo a passo em documentação.",
+    env: "SERVER-DC (Windows Server 2019) · CLIENTE01 e CLIENTE02 (Windows 10) · rede interna \"labrede\"",
+    status: "Em documentação",
+    date: "mai/2026",
     page: "labs/lab-001.html"
   },
   {
-    id: "lab-002",
     code: "LAB-002",
-    title: "File Server e Compartilhamentos NTFS",
-    description: "Configuração de um servidor de arquivos corporativo com compartilhamentos de rede e permissões NTFS granulares.",
-    tech: ["Windows Server", "File Server", "Compartilhamentos", "NTFS"],
-    status: "Concluído",
-    date: "Fev 2026",
+    title: "File Server e permissões NTFS",
+    description: "Roteiro de compartilhamentos por departamento com permissões por grupo de segurança.",
+    status: "Planejado",
+    date: "—",
     page: "labs/lab-002.html"
   },
   {
-    id: "lab-003",
     code: "LAB-003",
-    title: "Políticas de Grupo (GPO) e Mapeamento Automático",
-    description: "Criação de GPOs para mapeamento automático de unidades de rede no logon dos usuários e aplicação de políticas de segurança.",
-    tech: ["GPO", "Mapeamento de Unidades", "Políticas de Logon"],
-    status: "Em andamento",
-    date: "Mar 2026",
+    title: "GPO e mapeamento automático de unidades",
+    description: "Roteiro de GPOs de mapeamento de unidades e políticas de segurança por OU.",
+    status: "Planejado",
+    date: "—",
     page: "labs/lab-003.html"
   },
   {
-    id: "lab-004",
     code: "LAB-004",
-    title: "Automação de Usuários via PowerShell",
-    description: "Script em PowerShell para leitura de arquivo CSV e criação automatizada de usuários no Active Directory.",
-    tech: ["PowerShell", "CSV", "Automação"],
+    title: "Criação de usuários via PowerShell",
+    description: "Roteiro de script que cria contas no AD a partir de um CSV, com log de execução.",
     status: "Planejado",
-    date: "Prev. Abr 2026",
+    date: "—",
     page: "labs/lab-004.html"
   }
 ];
 
-/* --------------------------------------------------------------------- */
-/* 6. ROADMAP DE CARREIRA                                                  */
-/* --------------------------------------------------------------------- */
-const ROADMAP_DATA = [
-  {
-    year: "2026",
-    items: ["Certificação AZ-900", "PowerShell avançado", "Windows Server avançado"],
-    progress: 35
-  },
-  {
-    year: "2027",
-    items: ["Certificação AZ-104", "Administração Linux", "Docker", "Python para automação", "Fundamentos AWS"],
-    progress: 10
-  },
-  {
-    year: "2028",
-    items: ["Terraform (IaC)", "Kubernetes", "Atuação como Cloud Engineer"],
-    progress: 0
-  }
-];
-
-/* --------------------------------------------------------------------- */
-/* 7. CERTIFICAÇÕES                                                       */
-/* --------------------------------------------------------------------- */
+/* 7. CERTIFICAÇÕES --------------------------------------------------------------
+   verifyUrl: link público de verificação, quando existir.                        */
 const CERTIFICATIONS_DATA = [
-  { name: "Fundamentos de Redes", vendor: "Cisco", status: "Concluída", icon: "fa-solid fa-network-wired" },
-  { name: "AZ-900: Azure Fundamentals", vendor: "Microsoft", status: "Em andamento", icon: "fa-brands fa-microsoft" },
-  { name: "AZ-104: Azure Administrator", vendor: "Microsoft", status: "Planejada", icon: "fa-brands fa-microsoft" },
-  { name: "CCNA", vendor: "Cisco", status: "Planejada", icon: "fa-solid fa-router" },
-  { name: "AWS Cloud Practitioner", vendor: "AWS", status: "Planejada", icon: "fa-brands fa-aws" },
-  { name: "Linux Essentials", vendor: "Linux Professional Institute", status: "Planejada", icon: "fa-brands fa-linux" },
-  { name: "PowerShell for Sysadmins", vendor: "Microsoft", status: "Planejada", icon: "fa-solid fa-terminal" },
-  { name: "Docker Fundamentals", vendor: "Docker", status: "Planejada", icon: "fa-brands fa-docker" }
-];
-
-/* --------------------------------------------------------------------- */
-/* 8. BLOG TÉCNICO                                                        */
-/* --------------------------------------------------------------------- */
-const BLOG_DATA = [
   {
-    title: "Como estruturar unidades organizacionais no Active Directory",
-    category: "Infraestrutura",
-    icon: "fa-solid fa-sitemap",
-    summary: "Boas práticas para planejar uma hierarquia de OUs que facilite a delegação de permissões e a aplicação de GPOs.",
-    readTime: "6 min",
-    date: "10 Mar 2026",
-    page: "blog/post-01.html"
+    name: "AWS Academy Graduate — Cloud Foundations",
+    issuer: "AWS Academy",
+    detail: "Training Badge · 20 h · nov/2026",
+    verifyUrl: "https://www.credly.com/go/B36iQJ1m"
   },
   {
-    title: "DHCP e DNS: a dupla que sustenta a rede corporativa",
-    category: "Redes",
-    icon: "fa-solid fa-network-wired",
-    summary: "Entenda como esses dois serviços trabalham juntos para manter dispositivos conectados e endereçáveis na rede.",
-    readTime: "5 min",
-    date: "22 Mar 2026",
-    page: "blog/post-02.html"
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    detail: "abr/2026",
+    verifyUrl: null
   },
   {
-    title: "Primeiros passos com Microsoft Azure para quem vem do Windows Server",
-    category: "Azure",
-    icon: "fa-brands fa-microsoft",
-    summary: "Um guia prático para administradores Windows que estão migrando o conhecimento para a nuvem Microsoft.",
-    readTime: "7 min",
-    date: "02 Abr 2026",
-    page: "blog/post-03.html"
+    name: "Fundamentos de Redes",
+    issuer: "Cisco Networking Academy",
+    detail: "",
+    verifyUrl: null
   }
 ];
-
-/* Categorias disponíveis para o filtro do Blog Técnico (seção #blog).
-   Mantidas como lista fixa para preservar a ordem de exibição mesmo se
-   nenhum post de uma categoria existir ainda. */
-const BLOG_CATEGORIES = ["Todos", "Infraestrutura", "Windows Server", "Azure", "PowerShell", "Cloud", "Redes"];
-
-/* --------------------------------------------------------------------- */
-/* 9. JORNADA (seção "Minha Jornada")                                     */
-/* --------------------------------------------------------------------- */
-const JOURNEY_DATA = [
-  { year: "Jan 2024", label: "Primeiro contato com Infraestrutura" },
-  { year: "Abril 2026", label: "Entrada na TransMargoo (Jovem Aprendiz)" },
-  { year: "Maio 2026", label: "Windows Server" },
-  { year: "Maio 2026", label: "Active Directory" },
-  { year: "Jun 2026", label: "GPO, DNS & DHCP" },
-  { year: "Jul 2026", label: "PowerShell" },
-  { year: "2026", label: "Microsoft Azure (AZ-900)" },
-  { year: "2027", label: "Cloud (AZ-104 · Linux · Docker)" },
-  { year: "2028", label: "Cloud Engineer" }
-];
-
-/* --------------------------------------------------------------------- */
-/* 10. DADOS PESSOAIS / CONTATO                                           */
-/* --------------------------------------------------------------------- */
-const PROFILE_DATA = {
-  name: "Pedro Henrique",
-  // Efeito de digitação do Hero — alterna exatamente o foco técnico do perfil.
-  roles: [
-    "Infraestrutura Microsoft",
-    "Windows Server",
-    "Active Directory",
-    "Cloud Computing",
-    "PowerShell",
-    "Azure"
-  ],
-  linkedin: "https://www.linkedin.com/in/pedrosilva-sistemas/",
-  github: "https://github.com/pedrosilva-c",
-  email: "contatopedromarketinglab@gmail.com",
-  resume: "assets/curriculo-pedro-henrique.pdf"
-};
