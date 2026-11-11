@@ -160,7 +160,7 @@ const PROJECTS_DATA = [
       "Relatório diário (resumo, por tipo, por hora, ranking por veículo) em JSON, XLSX e PDF.",
       "API FastAPI e interface web sem etapa de build."
     ],
-    tests: "19 testes pytest, incluindo a API de ponta a ponta e proteções contra CSRF, DNS rebinding e injeção de fórmula no XLSX; interface testada no navegador.",
+    tests: "20 testes pytest, incluindo a API de ponta a ponta e proteções contra CSRF, DNS rebinding e injeção de fórmula no XLSX; interface testada no navegador.",
     limits: "Demo local sem autenticação; três tipos de evento fixos; sem fuso horário.",
     tech: ["Python", "FastAPI", "SQLite", "openpyxl", "fpdf2", "pytest"],
     repo: "https://github.com/pedrosilva-c/fleet-report-demo",
