@@ -195,10 +195,10 @@ const PROJECTS_DATA = [
       "Arquitetura planejada em serviços AWS, com módulo de avaliações em Firebase."
     ],
     tests: "Não se aplica: entrega de especificação. A agenda própria ainda não foi implementada.",
-    limits: "Trabalho de um grupo de sete integrantes; a autoria é coletiva.",
+    limits: "Autoria coletiva de sete integrantes; a contribuição individual não está separada neste resumo.",
     tech: ["UML", "Astah", "AWS (planejado)", "Firebase"],
     repo: null,
-    note: "Projeto em grupo — créditos de todos os integrantes no repositório."
+    note: "Projeto em grupo. Integrantes: Camille Vitoria Lopes Ramos, Gabriel do Valle Cavararo Gouveia, Hiago Andreza André, Igor Rodrigues do Nascimento, Pedro Gomes Barbosa, Pedro Henrique da Silva Pereira e Rafael Ferreira Vedelago. Documento e diagramas não publicados até a autorização do grupo."
   }
 ];
 

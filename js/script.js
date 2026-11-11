@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${p.demo ? `<a class="btn" href="${esc(p.demo)}" target="_blank" rel="noopener">Demo ao vivo<span class="visually-hidden"> de ${esc(p.title)}</span></a>` : ""}
             ${p.repo
               ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>Repositório<span class="visually-hidden"> de ${esc(p.title)}</span></a>`
-              : `<span class="mono small muted">${p.status === "Interno" ? "código não público" : "repositório em preparação"}</span>`}
+              : `<span class="mono small muted">${p.status === "Interno" ? "código não público" : p.id === "barberflow" ? "não publicado" : "repositório em preparação"}</span>`}
           </span>
         </div>
       </article>`).join("");
