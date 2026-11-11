@@ -147,6 +147,26 @@ const PROJECTS_DATA = [
     repo: "https://github.com/pedrosilva-c/kaizen-tech"
   },
   {
+    id: "fleet-report-demo",
+    title: "Fleet Report Demo",
+    kind: "Sistemas · Dados e relatórios",
+    status: "Funcional",
+    summary: "Demonstração independente, com dados 100% fictícios: importa planilhas de telemetria de frota, confere cada linha e gera relatórios diários em tela, XLSX e PDF.",
+    problem: "Relatórios montados à mão deixam passar linhas com erro, contam o mesmo arquivo duas vezes e mostram \"zero\" num dia sem dados.",
+    built: [
+      "Importação de CSV/XLSX com rejeição motivada de cada linha inválida.",
+      "Idempotência por SHA-256 do arquivo e por evento; reversão auditável de lotes.",
+      "Regras configuráveis em JSON, com versão exibida nos relatórios.",
+      "Relatório diário (resumo, por tipo, por hora, ranking por veículo) em JSON, XLSX e PDF.",
+      "API FastAPI e interface web sem etapa de build."
+    ],
+    tests: "16 testes pytest, incluindo a API de ponta a ponta; interface testada no navegador.",
+    limits: "Demo local sem autenticação; três tipos de evento fixos; sem fuso horário.",
+    tech: ["Python", "FastAPI", "SQLite", "openpyxl", "fpdf2", "pytest"],
+    repo: "https://github.com/pedrosilva-c/fleet-report-demo",
+    note: "Escrita do zero, sem código, regras ou dados de empresa."
+  },
+  {
     id: "tm-telemetria",
     title: "TM Telemetria",
     kind: "Sistema interno · Relatórios",
@@ -159,7 +179,7 @@ const PROJECTS_DATA = [
       "Geração de relatórios em PDF e XLSX, com histórico."
     ],
     tests: "Suíte automatizada no backend (pytest) executada a cada alteração.",
-    limits: "Projeto da empresa: código, regras e dados não são públicos. Uma demonstração independente, com dados 100% fictícios, está em planejamento.",
+    limits: "Projeto da empresa: código, regras e dados não são públicos. A demonstração independente Fleet Report Demo mostra o mesmo tipo de solução com dados fictícios.",
     tech: ["Python", "FastAPI", "React", "TypeScript", "SQLite"],
     repo: null
   },
