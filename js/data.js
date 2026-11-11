@@ -237,8 +237,8 @@ const LABS_DATA = [
   {
     code: "LAB-001",
     title: "Domínio Active Directory em VirtualBox",
-    description: "Ambiente com um controlador de domínio e duas estações em rede interna isolada. Evidências e passo a passo em documentação.",
-    env: "SERVER-DC (Windows Server 2019) · CLIENTE01 e CLIENTE02 (Windows 10) · rede interna \"labrede\"",
+    description: "Controlador de domínio e estação Windows 10 em rede interna isolada. Evidências sendo coletadas com scripts PowerShell somente leitura.",
+    env: "SERVER-DC (Windows Server 2019) · CLIENTE02 (Windows 10) · rede interna \"labrede\" · scripts de coleta no GitHub",
     status: "Em documentação",
     date: "mai/2026",
     page: "labs/lab-001.html"

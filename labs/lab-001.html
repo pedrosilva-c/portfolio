@@ -45,19 +45,22 @@
           <h2>Ambiente</h2>
           <table class="spec">
             <tr><th scope="row">Hipervisor</th><td>Oracle VirtualBox</td></tr>
-            <tr><th scope="row">SERVER-DC</th><td>Windows Server 2019 (64 bits) — controlador de domínio</td></tr>
-            <tr><th scope="row">CLIENTE01</th><td>Windows 10 (64 bits) — estação do domínio</td></tr>
-            <tr><th scope="row">CLIENTE02</th><td>Windows 10 (64 bits) — estação do domínio</td></tr>
-            <tr><th scope="row">Rede</th><td>Rede interna isolada <code>labrede</code> entre as VMs; NAT Network para acesso externo</td></tr>
+            <tr><th scope="row">SERVER-DC</th><td>Windows Server 2019 (64 bits, avaliação), 2 vCPU, 4 GB — controlador de domínio</td></tr>
+            <tr><th scope="row">CLIENTE02</th><td>Windows 10 22H2 (64 bits), 2 vCPU, 2 GB — estação do domínio</td></tr>
+            <tr><th scope="row">CLIENTE01</th><td>VM criada, sistema operacional ainda não instalado</td></tr>
+            <tr><th scope="row">Rede</th><td>Rede interna isolada <code>labrede</code> entre as VMs; NAT apenas no SERVER-DC para acesso externo</td></tr>
           </table>
           <h2>Objetivo</h2>
           <p>Simular, em ambiente de laboratório, a implantação de um controlador de domínio corporativo, estabelecendo a base de identidade e autenticação para toda a infraestrutura de rede.</p>
           <h2>Roteiro e evidências a documentar</h2>
           <ul class="checklist">
             <li>Instalação da função AD DS (Active Directory Domain Services) no Windows Server.</li><li>Promoção do servidor a controlador de domínio e criação da floresta/domínio.</li><li>Configuração das zonas de DNS integradas ao Active Directory.</li><li>Configuração de escopo DHCP para distribuição automática de endereços IP.</li><li>Criação da estrutura de Unidades Organizacionais (OUs) por departamento.</li><li>Criação de usuários, grupos de segurança e atribuição de permissões.</li>
-            <li>Ingresso de CLIENTE01 e CLIENTE02 no domínio e logon com usuário do domínio.</li>
+            <li>Ingresso do CLIENTE02 no domínio e logon com usuário do domínio (CLIENTE01 depois de instalado).</li>
             <li>Verificação com <code>dcdiag</code>, <code>nslookup</code> e <code>ipconfig /all</code> nas estações.</li>
           </ul>
+          <h2>Repositório</h2>
+          <p>Topologia, checklist e os scripts PowerShell <strong>somente leitura</strong> que coletam as evidências no DC e na estação:
+          <a href="https://github.com/pedrosilva-c/lab-active-directory" target="_blank" rel="noopener">github.com/pedrosilva-c/lab-active-directory</a>.</p>
         </div>
         <div class="page-nav"><a class="btn" href="lab-002.html">LAB-002 →</a></div>
       </div>
