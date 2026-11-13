@@ -47,7 +47,7 @@ _source/              fontes do currículo e da imagem Open Graph (ignorado pelo
 docs/assets/          imagens deste README
 ```
 
-Para atualizar o conteúdo, edite apenas `js/data.js`. Um projeto com `featured: true` e `cover` aparece no grupo "Em destaque".
+Para atualizar o conteúdo, edite apenas `js/data.js`. Um projeto com `featured: true` e `cover` aparece no grupo "Em destaque"; se o número de destaques for ímpar, o último ocupa a linha inteira.
 
 ## Como executar
 

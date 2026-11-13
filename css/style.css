@@ -255,6 +255,15 @@ ul { margin: 0; padding-left: 1.2em; }
 .project-cover img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; transition: transform .25s ease; }
 .project--featured:hover .project-cover img { transform: scale(1.015); }
 @media (prefers-reduced-motion: reduce) { .project-cover img { transition: none; } }
+/* Destaque ímpar no fim da grade: ocupa a linha inteira, com a capa à esquerda */
+@media (min-width: 860px) {
+  #projects-container > .project--featured:last-child:nth-child(odd) {
+    grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 28px; row-gap: 12px; align-content: start;
+  }
+  #projects-container > .project--featured:last-child:nth-child(odd) > * { grid-column: 2; }
+  #projects-container > .project--featured:last-child:nth-child(odd) > .project-cover { grid-column: 1; grid-row: 1 / span 8; align-self: start; margin: 0; }
+}
 .project-grid--compact { align-items: start; }
 .project-grid--compact .project { gap: 10px; }
 .group-title { font-family: var(--font-mono); font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin: 32px 0 14px; display: flex; align-items: center; gap: 12px; }

@@ -131,6 +131,27 @@ const PROJECTS_DATA = [
     repo: "https://github.com/Pedro-Osaka/kaizen-tech"
   },
   {
+    id: "lab-active-directory",
+    featured: true,
+    cover: "assets/images/covers/lab-active-directory.png",
+    title: "Laboratório Active Directory",
+    kind: "Infraestrutura · Windows Server",
+    status: "Em documentação",
+    summary: "Domínio Active Directory em VirtualBox: controlador Windows Server 2019 e estação Windows 10 em rede interna isolada, com scripts PowerShell somente leitura para coletar evidências.",
+    problem: "Praticar, num ambiente isolado, as tarefas de infraestrutura Microsoft do suporte e registrar cada etapa com evidência verificável, em vez de só descrevê-la.",
+    built: [
+      "SERVER-DC (Windows Server 2019) e CLIENTE02 (Windows 10 22H2) na rede interna \"labrede\"; CLIENTE01 criado, ainda sem sistema instalado.",
+      "Topologia e especificações extraídas da configuração real das VMs (VBoxManage).",
+      "Scripts PowerShell somente leitura para coletar evidências no controlador e no cliente.",
+      "Checklist de 10 etapas: AD DS, DNS, DHCP, OUs, grupos, ingresso no domínio, GPO, File Server e dcdiag."
+    ],
+    tests: "Scripts sem erros no parser do Windows PowerShell 5.1; o de cliente foi executado fora de domínio e registrou as falhas esperadas. O script do controlador ainda não rodou num DC.",
+    limits: "Nenhuma etapa do checklist está comprovada ainda: as evidências e as capturas de tela serão coletadas nas VMs.",
+    tech: ["Windows Server 2019", "Active Directory", "DNS", "PowerShell", "VirtualBox"],
+    repo: "https://github.com/Pedro-Osaka/lab-active-directory",
+    note: "Roteiro completo em LAB-001, na seção Laboratórios."
+  },
+  {
     id: "fleet-report-demo",
     featured: true,
     cover: "assets/images/covers/fleet-report-demo.png",
