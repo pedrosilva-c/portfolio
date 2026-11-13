@@ -106,29 +106,13 @@ const EXPERIENCE_DATA = [
 
 /* 4. PROJETOS ----------------------------------------------------------------
    status: "Funcional" | "WIP" | "Concluído" | "Interno" | "Especificação"
-   repo: URL do repositório público ou null enquanto não for publicado.       */
+   repo: URL do repositório público ou null enquanto não for publicado.
+   featured: aparece no grupo "Em destaque", com a capa (cover) do repositório. */
 const PROJECTS_DATA = [
   {
-    id: "campus-ai",
-    title: "Campus AI",
-    kind: "Desenvolvimento · Automação",
-    status: "WIP",
-    summary: "Assistente acadêmico para Windows que organiza materiais, atividades e prazos do Moodle em notas locais do Obsidian.",
-    problem: "Acompanhar várias disciplinas no AVA exige abrir cada página para descobrir o que mudou e o que vence.",
-    built: [
-      "Interface desktop em PySide6 com modo de demonstração (dados fictícios).",
-      "Leitura de uma disciplina autorizada por navegador dedicado (Playwright), com login manual do aluno e sem envios.",
-      "Extensão de navegador \"Companion\" em JavaScript, comunicando com o app local.",
-      "Integração Gmail somente leitura (OAuth, escopo gmail.readonly) e histórico local em SQLite.",
-      "Escrita de notas Markdown no Obsidian preservando edições manuais."
-    ],
-    tests: "566 testes Python (unittest) e 97 testes da extensão (node:test) passando; a suíte roda isolada dos dados reais e falha se algum dado real mudar.",
-    limits: "Ainda não validado de ponta a ponta com contas reais; leitura limitada a uma disciplina piloto. Não é um aplicativo oficial da instituição.",
-    tech: ["Python", "PySide6", "Playwright", "SQLite", "Gmail API", "JavaScript"],
-    repo: "https://github.com/pedrosilva-c/campus-ai"
-  },
-  {
     id: "kaizen-tech",
+    featured: true,
+    cover: "assets/images/covers/kaizen-tech.png",
     title: "Kaizen Tech",
     kind: "Suporte · Automação Windows",
     status: "Funcional",
@@ -141,13 +125,15 @@ const PROJECTS_DATA = [
       "Verificação de atualizações pendentes, programas de inicialização e plano de energia.",
       "Backup rápido de Desktop, Documentos e Imagens; relatório do atendimento em PDF."
     ],
-    tests: "13 testes automatizados das funções auxiliares e da limpeza segura (inclusive contra junções que apontam para fora da pasta); ações de manutenção validadas manualmente em máquina própria.",
+    tests: "14 testes automatizados das funções auxiliares e da limpeza segura (inclusive contra junções que apontam para fora da pasta); ações de manutenção validadas manualmente em máquina própria.",
     limits: "Exige privilégio de administrador e altera configurações do Windows (registro, plano de energia). Use apenas em máquinas sob sua responsabilidade.",
     tech: ["Python", "Tkinter", "winreg", "PowerShell", "PyInstaller"],
     repo: "https://github.com/pedrosilva-c/kaizen-tech"
   },
   {
     id: "fleet-report-demo",
+    featured: true,
+    cover: "assets/images/covers/fleet-report-demo.png",
     title: "Fleet Report Demo",
     kind: "Sistemas · Dados e relatórios",
     status: "Funcional",
@@ -167,24 +153,30 @@ const PROJECTS_DATA = [
     note: "Escrita do zero, sem código, regras ou dados de empresa."
   },
   {
-    id: "tm-telemetria",
-    title: "TM Telemetria",
-    kind: "Sistema interno · Relatórios",
-    status: "Interno",
-    summary: "Sistema local de análise operacional da frota: importação de planilhas, conferência de dados e relatórios em PDF e XLSX.",
-    problem: "Relatórios operacionais montados à mão a partir de planilhas exportadas, sem conferência sistemática dos dados.",
+    id: "campus-ai",
+    featured: true,
+    cover: "assets/images/covers/campus-ai.png",
+    title: "Campus AI",
+    kind: "Desenvolvimento · Automação",
+    status: "WIP",
+    summary: "Assistente acadêmico para Windows que organiza materiais, atividades e prazos do Moodle em notas locais do Obsidian.",
+    problem: "Acompanhar várias disciplinas no AVA exige abrir cada página para descobrir o que mudou e o que vence.",
     built: [
-      "Importação de planilhas CSV/XLSX com conferência e reversão de importações.",
-      "Análise de ocorrências e de consumo/ociosidade da frota.",
-      "Geração de relatórios em PDF e XLSX, com histórico."
+      "Interface desktop em PySide6 com modo de demonstração (dados fictícios).",
+      "Leitura de uma disciplina autorizada por navegador dedicado (Playwright), com login manual do aluno e sem envios.",
+      "Extensão de navegador \"Companion\" em JavaScript, comunicando com o app local.",
+      "Integração Gmail somente leitura (OAuth, escopo gmail.readonly) e histórico local em SQLite.",
+      "Escrita de notas Markdown no Obsidian preservando edições manuais."
     ],
-    tests: "Suíte automatizada no backend (pytest) executada a cada alteração.",
-    limits: "Projeto da empresa: código, regras e dados não são públicos. A demonstração independente Fleet Report Demo mostra o mesmo tipo de solução com dados fictícios.",
-    tech: ["Python", "FastAPI", "React", "TypeScript", "SQLite"],
-    repo: null
+    tests: "566 testes Python (unittest) e 97 testes da extensão (node:test) passando; a suíte roda isolada dos dados reais e falha se algum dado real mudar.",
+    limits: "Ainda não validado de ponta a ponta com contas reais; leitura limitada a uma disciplina piloto. Não é um aplicativo oficial da instituição.",
+    tech: ["Python", "PySide6", "Playwright", "SQLite", "Gmail API", "JavaScript"],
+    repo: "https://github.com/pedrosilva-c/campus-ai"
   },
   {
     id: "inclusao-360",
+    featured: true,
+    cover: "assets/images/covers/inclusao-360.png",
     title: "Inclusão 360°",
     kind: "Acadêmico · Acessibilidade web",
     status: "Concluído",
@@ -201,6 +193,23 @@ const PROJECTS_DATA = [
     repo: "https://github.com/pedrosilva-c/inclusao-360",
     demo: "https://pedrosilva-c.github.io/inclusao-360/",
     note: "Projeto individual."
+  },
+  {
+    id: "tm-telemetria",
+    title: "TM Telemetria",
+    kind: "Sistema interno · Relatórios",
+    status: "Interno",
+    summary: "Sistema local de análise operacional da frota: importação de planilhas, conferência de dados e relatórios em PDF e XLSX.",
+    problem: "Relatórios operacionais montados à mão a partir de planilhas exportadas, sem conferência sistemática dos dados.",
+    built: [
+      "Importação de planilhas CSV/XLSX com conferência e reversão de importações.",
+      "Análise de ocorrências e de consumo/ociosidade da frota.",
+      "Geração de relatórios em PDF e XLSX, com histórico."
+    ],
+    tests: "Suíte automatizada no backend (pytest) executada a cada alteração.",
+    limits: "Projeto da empresa: código, regras e dados não são públicos. A demonstração independente Fleet Report Demo mostra o mesmo tipo de solução com dados fictícios.",
+    tech: ["Python", "FastAPI", "React", "TypeScript", "SQLite"],
+    repo: null
   },
   {
     id: "barberflow",
@@ -261,7 +270,8 @@ const LABS_DATA = [
     env: "SERVER-DC (Windows Server 2019) · CLIENTE02 (Windows 10) · rede interna \"labrede\" · scripts de coleta no GitHub",
     status: "Em documentação",
     date: "mai/2026",
-    page: "labs/lab-001.html"
+    page: "labs/lab-001.html",
+    repo: "https://github.com/pedrosilva-c/lab-active-directory"
   },
   {
     code: "LAB-002",

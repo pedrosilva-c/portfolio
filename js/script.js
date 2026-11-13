@@ -81,10 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </article>`).join("");
   }
 
-  const proj = $("#projects-container");
-  if (proj && typeof PROJECTS_DATA !== "undefined") {
-    proj.innerHTML = PROJECTS_DATA.map(p => `
-      <article class="card project" id="projeto-${esc(p.id)}">
+  const projectCard = p => `
+      <article class="card project${p.cover ? " project--featured" : ""}" id="projeto-${esc(p.id)}">
+        ${p.cover ? `<a class="project-cover" href="${esc(p.repo)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="${esc(p.cover)}" alt="" width="1280" height="640" loading="lazy" decoding="async"></a>` : ""}
         <div class="project-head">
           <div>
             <p class="project-kind">${esc(p.kind)}</p>
@@ -103,16 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
             <div><dt>Limitações</dt><dd>${esc(p.limits)}</dd></div>
           </dl>
         </details>
+        ${p.note ? `<p class="project-note">${esc(p.note)}</p>` : ""}
         <div class="project-foot">
-          ${p.note ? `<span class="project-note">${esc(p.note)}</span>` : "<span></span>"}
-          <span class="actions">
-            ${p.demo ? `<a class="btn" href="${esc(p.demo)}" target="_blank" rel="noopener">Demo ao vivo<span class="visually-hidden"> de ${esc(p.title)}</span></a>` : ""}
-            ${p.repo
-              ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>Repositório<span class="visually-hidden"> de ${esc(p.title)}</span></a>`
-              : `<span class="mono small muted">${p.status === "Interno" ? "código não público" : p.id === "barberflow" ? "não publicado" : "repositório em preparação"}</span>`}
-          </span>
+          ${p.repo
+            ? `<a class="btn" href="${esc(p.repo)}" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>Repositório<span class="visually-hidden"> de ${esc(p.title)}</span></a>`
+            : `<span class="mono small muted">${p.status === "Interno" ? "código não público" : p.id === "barberflow" ? "não publicado" : "repositório em preparação"}</span>`}
+          ${p.demo ? `<a class="btn" href="${esc(p.demo)}" target="_blank" rel="noopener">Demo ao vivo<span class="visually-hidden"> de ${esc(p.title)}</span></a>` : ""}
         </div>
-      </article>`).join("");
+      </article>`;
+
+  const proj = $("#projects-container");
+  if (proj && typeof PROJECTS_DATA !== "undefined") {
+    proj.innerHTML = PROJECTS_DATA.filter(p => p.featured).map(projectCard).join("");
+    const others = $("#projects-others");
+    if (others) others.innerHTML = PROJECTS_DATA.filter(p => !p.featured).map(projectCard).join("");
   }
 
   const casos = $("#casos-container");
@@ -144,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${badge(l.status)}
           <span class="lab-date">${esc(l.date)}</span>
           <a href="${esc(l.page)}">Ver página<span class="visually-hidden"> do ${esc(l.code)}</span></a>
+          ${l.repo ? `<a href="${esc(l.repo)}" target="_blank" rel="noopener">Repositório<span class="visually-hidden"> do ${esc(l.code)}</span></a>` : ""}
         </div>
       </article>`).join("");
   }
