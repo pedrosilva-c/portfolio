@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pedrosilva-c.github.io/portfolio/sitemap.xml
+Sitemap: https://pedro-osaka.github.io/portfolio/sitemap.xml

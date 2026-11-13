@@ -2,11 +2,11 @@
 
 # Portfólio — Pedro Henrique da Silva Pereira
 
-> **Status: publicado** em https://pedrosilva-c.github.io/portfolio/
+> **Status: publicado** em https://pedro-osaka.github.io/portfolio/
 
 Portfólio estático de **Suporte e Infraestrutura de TI | Automação e Sistemas**, com experiência profissional, projetos, casos técnicos, laboratórios e certificações.
 
-**[Abrir o site](https://pedrosilva-c.github.io/portfolio/)** · **[Perfil no GitHub](https://github.com/pedrosilva-c)**
+**[Abrir o site](https://pedro-osaka.github.io/portfolio/)** · **[Perfil no GitHub](https://github.com/Pedro-Osaka)**
 
 ## Problema
 
@@ -25,7 +25,7 @@ Um portfólio de TI costuma misturar o que foi feito com o que foi só estudado,
 
 HTML, CSS e JavaScript sem frameworks nem etapa de build · fontes Inter e JetBrains Mono (Google Fonts) · ícones SVG inline · GitHub Pages.
 
-A identidade visual (cores, tipografia e as capas dos projetos) é a mesma do perfil no GitHub e está documentada em [`pedrosilva-c/brand`](https://github.com/pedrosilva-c/pedrosilva-c/tree/main/brand).
+A identidade visual (cores, tipografia e as capas dos projetos) é a mesma do perfil no GitHub e está documentada em [`Pedro-Osaka/brand`](https://github.com/Pedro-Osaka/Pedro-Osaka/tree/main/brand).
 
 ## Demonstração
 
@@ -68,7 +68,7 @@ $edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
   --screenshot="$PWD\assets\images\og-cover.png" "file:///$PWD/_source/og-cover.html"
 ```
 
-As capas dos projetos vêm do gerador em [`pedrosilva-c/brand`](https://github.com/pedrosilva-c/pedrosilva-c/tree/main/brand), reduzidas para 1280×640.
+As capas dos projetos vêm do gerador em [`Pedro-Osaka/brand`](https://github.com/Pedro-Osaka/Pedro-Osaka/tree/main/brand), reduzidas para 1280×640.
 
 ## Testes
 
@@ -95,6 +95,6 @@ Não há suíte automatizada neste repositório. A cada publicação, faço veri
 
 - E-mail: contatopedromarketinglab@gmail.com
 - LinkedIn: https://www.linkedin.com/in/pedrosilva-sistemas/
-- GitHub: https://github.com/pedrosilva-c
+- GitHub: https://github.com/Pedro-Osaka
 
 Os integrantes do BarberFlow, projeto em grupo, estão creditados no próprio site.

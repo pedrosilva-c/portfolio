@@ -14,8 +14,8 @@ const PROFILE_DATA = {
   headline: "Suporte e Infraestrutura de TI | Automação e Sistemas",
   email: "contatopedromarketinglab@gmail.com",
   linkedin: "https://www.linkedin.com/in/pedrosilva-sistemas/",
-  github: "https://github.com/pedrosilva-c",
-  site: "https://pedrosilva-c.github.io/portfolio/",
+  github: "https://github.com/Pedro-Osaka",
+  site: "https://pedro-osaka.github.io/portfolio/",
   resume: "assets/curriculo-pedro-henrique.pdf"
 };
 
@@ -128,7 +128,7 @@ const PROJECTS_DATA = [
     tests: "14 testes automatizados das funções auxiliares e da limpeza segura (inclusive contra junções que apontam para fora da pasta); ações de manutenção validadas manualmente em máquina própria.",
     limits: "Exige privilégio de administrador e altera configurações do Windows (registro, plano de energia). Use apenas em máquinas sob sua responsabilidade.",
     tech: ["Python", "Tkinter", "winreg", "PowerShell", "PyInstaller"],
-    repo: "https://github.com/pedrosilva-c/kaizen-tech"
+    repo: "https://github.com/Pedro-Osaka/kaizen-tech"
   },
   {
     id: "fleet-report-demo",
@@ -149,7 +149,7 @@ const PROJECTS_DATA = [
     tests: "20 testes pytest, incluindo a API de ponta a ponta e proteções contra CSRF, DNS rebinding e injeção de fórmula no XLSX; interface testada no navegador.",
     limits: "Demo local sem autenticação; três tipos de evento fixos; sem fuso horário.",
     tech: ["Python", "FastAPI", "SQLite", "openpyxl", "fpdf2", "pytest"],
-    repo: "https://github.com/pedrosilva-c/fleet-report-demo",
+    repo: "https://github.com/Pedro-Osaka/fleet-report-demo",
     note: "Escrita do zero, sem código, regras ou dados de empresa."
   },
   {
@@ -171,7 +171,7 @@ const PROJECTS_DATA = [
     tests: "566 testes Python (unittest) e 97 testes da extensão (node:test) passando; a suíte roda isolada dos dados reais e falha se algum dado real mudar.",
     limits: "Ainda não validado de ponta a ponta com contas reais; leitura limitada a uma disciplina piloto. Não é um aplicativo oficial da instituição.",
     tech: ["Python", "PySide6", "Playwright", "SQLite", "Gmail API", "JavaScript"],
-    repo: "https://github.com/pedrosilva-c/campus-ai"
+    repo: "https://github.com/Pedro-Osaka/campus-ai"
   },
   {
     id: "inclusao-360",
@@ -190,8 +190,8 @@ const PROJECTS_DATA = [
     tests: "27 verificações de interface em Chromium, incluindo ausência de rolagem horizontal de 320 a 1440 px.",
     limits: "Não é uma auditoria WCAG; faltam testes com leitores de tela e com pessoas com deficiência.",
     tech: ["HTML", "CSS", "JavaScript", "Web Speech API", "VLibras"],
-    repo: "https://github.com/pedrosilva-c/inclusao-360",
-    demo: "https://pedrosilva-c.github.io/inclusao-360/",
+    repo: "https://github.com/Pedro-Osaka/inclusao-360",
+    demo: "https://pedro-osaka.github.io/inclusao-360/",
     note: "Projeto individual."
   },
   {
@@ -271,7 +271,7 @@ const LABS_DATA = [
     status: "Em documentação",
     date: "mai/2026",
     page: "labs/lab-001.html",
-    repo: "https://github.com/pedrosilva-c/lab-active-directory"
+    repo: "https://github.com/Pedro-Osaka/lab-active-directory"
   },
   {
     code: "LAB-002",
